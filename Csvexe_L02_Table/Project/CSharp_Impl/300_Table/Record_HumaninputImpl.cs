@@ -120,7 +120,7 @@ namespace Xenon.Table
             {
                 text = "";
             }
-            else
+            else if (this.DataRow[name_Field] is Cell)
             {
                 Cell valueH = (Cell)this.DataRow[name_Field];
                 if (null != valueH)
@@ -131,6 +131,11 @@ namespace Xenon.Table
                 {
                     text = "";
                 }
+            }
+            else
+            {
+                // DBNull クラスだった場合など。
+                text = "";
             }
 
             return text;
